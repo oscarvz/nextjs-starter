@@ -17,7 +17,7 @@ A few points that made me stick to TS:
 
 - Finding issues/bugs: the compiler points out what & where the problem is - before you're able to deploy anything;
 - Working together: there's less backtracing of code and reading code is easier;
-- Development process: it forces you to think differently about your code (_"What the heck am I \_actually_ doing?"\_);
+- Development process: it forces you to think differently about your code ("What the heck am I _actually_ doing?");
 
 ### ESLint / TSLint
 
@@ -32,7 +32,7 @@ Styling can easily become cumbersome when working with React. A library like `st
 By making use of `styled-components` you introduce a tiny bit of JS overhead to your project, but will introduce a bunch of benefits:
 
 - Theming: set up a global theme once and all your styled components can access it anywhere within the component tree;
-- Modernising: scoped CSS per component, extending components
+- Modernising: scoped CSS per component, extending components;
 - Optimisations: CSS gets injected only where it's needed. No more bulky CSS files!
 
 ### Prettier
