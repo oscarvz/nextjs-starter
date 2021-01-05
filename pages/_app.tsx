@@ -11,6 +11,7 @@ const App = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
       <meta name="description" content="Next.js starter" />
+      <link rel="icon" href="/favicon.ico" />
     </Head>
 
     <GlobalStyle />
