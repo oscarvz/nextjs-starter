@@ -1,6 +1,9 @@
 {
   "name": "nextjs-starter-ts-sc",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Template starter for Next.js project with TypeScript, ESLint and styled-components integrated",
+  "repository": "git@github.com:oscarvz/nextjs-starter.git",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
