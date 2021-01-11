@@ -1,16 +1,17 @@
 import styled, { css } from 'styled-components';
 
-const Component = styled.h1<{ bold?: boolean }>(
-  ({ bold }) => css`
+const Heading = styled.h1<{ bold?: boolean; italic?: boolean }>(
+  ({ bold, italic }) => css`
     ${bold &&
     css`
       font-weight: bold;
     `}
-  `,
-);
 
-const Heading: React.FC<{ bold?: boolean }> = ({ children, bold }) => (
-  <Component bold={bold}>{children}</Component>
+    ${italic &&
+    css`
+      font-style: italic;
+    `}
+  `,
 );
 
 export default Heading;
