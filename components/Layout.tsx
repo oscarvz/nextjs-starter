@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-// Note: using the '@components' alias will break import
-import Heading from './Heading';
-import Wrapper from './Wrapper';
+import { Heading, Wrapper } from '@components';
 
 const Header = styled.header`
   padding-top: 1rem;
@@ -11,7 +9,7 @@ const Header = styled.header`
   background: lightgray;
 `;
 
-const Main = styled(Wrapper).attrs({ as: 'main' })``;
+const Main = styled(Wrapper)``;
 
 const Footer = styled.footer`
   position: fixed;
@@ -35,7 +33,7 @@ const Layout: React.FC<{ title?: string }> = ({ children, title }) => (
       </Wrapper>
     </Header>
 
-    <Main>{children}</Main>
+    <Main as="main">{children}</Main>
 
     <Footer>
       <p>Built with &hearts; somewhere</p>
