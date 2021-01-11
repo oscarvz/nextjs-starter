@@ -5,7 +5,14 @@ import cssReset from 'styled-reset';
 
 import { theme } from '@styles';
 
-const GlobalStyle = createGlobalStyle(() => cssReset);
+const GlobalStyle = createGlobalStyle`
+  ${cssReset}
+
+  body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif
+  }
+`;
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>

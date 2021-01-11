@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-// TODO: Fix breaking named import Wrapper aliased path @components
+// Note: using the '@components' alias will break import
+import Heading from './Heading';
 import Wrapper from './Wrapper';
 
 const Header = styled.header`
@@ -10,7 +11,7 @@ const Header = styled.header`
   background: lightgray;
 `;
 
-const Main = styled(Wrapper)``;
+const Main = styled(Wrapper).attrs({ as: 'main' })``;
 
 const Footer = styled.footer`
   position: fixed;
@@ -22,19 +23,19 @@ const Footer = styled.footer`
   background: lightgray;
 `;
 
-const Layout = ({ children, title }: { children: React.ReactNode; title?: string }) => (
+const Layout: React.FC<{ title?: string }> = ({ children, title }) => (
   <>
     <Head>
-      <title>{!!title ? title : 'Next.js starter'}</title>
+      <title>{title || 'Next.js starter'}</title>
     </Head>
 
     <Header>
       <Wrapper>
-        <h1>Next.js starter</h1>
+        <Heading bold>Next.js starter</Heading>
       </Wrapper>
     </Header>
 
-    <Main as="main">{children}</Main>
+    <Main>{children}</Main>
 
     <Footer>
       <p>Built with &hearts; somewhere</p>

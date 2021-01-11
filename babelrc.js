@@ -5,7 +5,7 @@ module.exports = {
       'styled-components',
       {
         ssr: true,
-        displayName: process.env.NODE_ENV === 'production' ? false : true,
+        displayName: !process.env.NODE_ENV === 'production',
       },
     ],
   ],
