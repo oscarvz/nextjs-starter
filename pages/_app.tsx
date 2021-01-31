@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const App = ({ Component, pageProps }: AppProps) => (
+const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
       <meta name="description" content="Next.js starter" />
