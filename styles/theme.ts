@@ -28,10 +28,16 @@ const media: Media = Object.keys(screens).reduce((acc: any, label: string) => {
   return acc;
 }, {});
 
-const colors = {
+export const rootColors = {
   white: 'rgba(255, 255, 255, 1)',
   black: 'rgba(0, 0, 0, 1)',
+  lightGrey: 'rgba(245, 245, 245, 1)',
 };
+
+const colors: typeof rootColors = Object.keys(rootColors).reduce((acc, val) => ({
+  ...acc,
+  [val]: `var(--${val})`
+}), {} as typeof rootColors);
 
 const theme = {
   screens,
