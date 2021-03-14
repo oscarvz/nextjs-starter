@@ -10,8 +10,7 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           // TODO: fix the 'any' typings here - couldn't find any resources online how to type this
-          enhanceApp: (App: React.FC) => (props: any) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App: React.FC) => (props: any) => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
