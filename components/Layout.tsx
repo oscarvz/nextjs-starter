@@ -1,25 +1,29 @@
 import Head from 'next/head';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Heading, Wrapper } from '@components';
 
-const Header = styled.header`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background: lightgray;
-`;
+const Header = styled.header(
+  ({ theme }) => css`
+    padding: 1rem 0;
+    background: ${theme.colors.white};
+    box-shadow: ${theme.shadow};
+  `,
+);
 
 const Main = styled(Wrapper)``;
 
-const Footer = styled.footer`
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  text-align: center;
-  background: lightgray;
-`;
+const Footer = styled.footer(
+  ({ theme }) => css`
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    text-align: center;
+    background: ${theme.colors.white};
+    box-shadow: ${theme.shadow};
+  `,
+);
 
 const Layout: React.FC<{ title?: string }> = ({ children, title }) => (
   <>
