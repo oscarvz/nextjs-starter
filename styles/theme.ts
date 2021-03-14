@@ -33,14 +33,22 @@ export const rootColors = {
   black: 'rgb(0, 0, 0)',
   copy: 'rgb(0, 0, 0)',
   background: 'rgb(245, 245, 245)',
+  primary: 'rgb(29, 223, 205)',
+  primaryDark: 'rgb(4, 51, 47)',
 };
 
-const colors: typeof rootColors = Object.keys(rootColors).reduce((acc, val) => ({
-  ...acc,
-  [val]: `var(--${val})`
-}), {} as typeof rootColors);
+const colors: typeof rootColors = Object.keys(rootColors).reduce(
+  (acc, val) => ({
+    ...acc,
+    [val]: `var(--${val})`,
+  }),
+  {} as typeof rootColors,
+);
 
-const shadow = '0 0 1rem rgba(0, 0, 0, 0.15)';
+const shadow = {
+  small: '0 0 .5rem rgba(0, 0, 0, 0.15)',
+  large: '0 0 1rem rgba(0, 0, 0, 0.15)',
+};
 
 const theme = {
   screens,

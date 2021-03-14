@@ -7,11 +7,13 @@ const Header = styled.header(
   ({ theme }) => css`
     padding: 1rem 0;
     background: ${theme.colors.white};
-    box-shadow: ${theme.shadow};
+    box-shadow: ${theme.shadow.large};
   `,
 );
 
-const Main = styled(Wrapper)``;
+const Main = styled(Wrapper)`
+  padding: 1rem 0;
+`;
 
 const Footer = styled.footer(
   ({ theme }) => css`
