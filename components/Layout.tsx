@@ -12,7 +12,7 @@ const Header = styled.header(
 );
 
 const Main = styled(Wrapper)`
-  padding: 1rem 0;
+  padding: 0 1rem;
 `;
 
 const Footer = styled.footer(

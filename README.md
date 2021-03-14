@@ -19,10 +19,6 @@ A few points that made me stick to TS:
 - Working together: there's less backtracing of code and reading code is easier;
 - Development process: it forces you to think differently about your code ("What the heck am I _actually_ doing?");
 
-### ESLint / TSLint
-
-TODO: Add description
-
 ### Styled Components
 
 [_website_](https://styled-components.com) | [_github_](https://github.com/styled-components/styled-components) | [_npm_](https://npmjs.com/package/styled-components)
