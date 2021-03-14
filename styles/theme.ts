@@ -29,9 +29,10 @@ const media: Media = Object.keys(screens).reduce((acc: any, label: string) => {
 }, {});
 
 export const rootColors = {
-  white: 'rgba(255, 255, 255, 1)',
-  black: 'rgba(0, 0, 0, 1)',
-  lightGrey: 'rgba(245, 245, 245, 1)',
+  white: 'rgb(255, 255, 255)',
+  black: 'rgb(0, 0, 0)',
+  copy: 'rgb(0, 0, 0)',
+  background: 'rgb(245, 245, 245)',
 };
 
 const colors: typeof rootColors = Object.keys(rootColors).reduce((acc, val) => ({
@@ -39,10 +40,13 @@ const colors: typeof rootColors = Object.keys(rootColors).reduce((acc, val) => (
   [val]: `var(--${val})`
 }), {} as typeof rootColors);
 
+const shadow = '0 0 1rem rgba(0, 0, 0, 0.15)';
+
 const theme = {
   screens,
   media,
   colors,
+  shadow,
 };
 
 export default theme;

@@ -1,18 +1,26 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, css, ThemeProvider } from 'styled-components';
 import cssReset from 'styled-reset';
 
-import { theme } from '@styles';
+import { theme, rootColors } from '@styles';
 
-const GlobalStyle = createGlobalStyle`
-  ${cssReset}
+const GlobalStyle = createGlobalStyle(
+  ({ theme }) => css`
+    :root {
+      ${Object.entries(rootColors).map(([key, value]) => `--${key}:${value};`)}
+    }
 
-  body {
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif
-  }
-`;
+    ${cssReset}
+
+    body {
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: ${theme.colors.background};
+      color: ${theme.colors.copy};
+    }
+  `,
+);
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <>
@@ -21,9 +29,8 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <GlobalStyle />
-
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Component {...pageProps} />
     </ThemeProvider>
   </>
