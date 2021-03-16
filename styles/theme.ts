@@ -1,32 +1,41 @@
-import { css, DefaultTheme, ThemedCssFunction } from 'styled-components';
+import { css } from 'styled-components';
 
-// TODO: Improve Screens, Media & Label typing to get rid of the 'any' on line 21
-type Screens = {
-  [key: string]: string;
-};
+import type {
+  CSSObject,
+  DefaultTheme,
+  FlattenInterpolation,
+  InterpolationFunction,
+  ThemedStyledProps,
+} from 'styled-components';
 
-type Label = 'sm' | 'md' | 'lg' | 'xl';
+type CSSMediaArguments =
+  | CSSObject
+  | TemplateStringsArray
+  | InterpolationFunction<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
 
-type Media = {
-  [key in Label]: ThemedCssFunction<DefaultTheme>;
-};
-
-const screens: Screens = {
+const screens = {
   sm: '320px',
   md: '768px',
   lg: '1024px',
   xl: '1366px',
 };
 
-const media: Media = Object.keys(screens).reduce((acc: any, label: string) => {
-  acc[label] = (args: TemplateStringsArray) => css`
-    @media (min-width: ${screens[label]}) {
-      ${css(args)}
-    }
-  `;
+const media = Object.keys(screens).reduce(
+  (acc, selector) => {
+    acc[selector as keyof typeof screens] = (args: CSSMediaArguments) => css`
+      @media (min-width: ${screens[selector as keyof typeof screens]}) {
+        ${css(args)}
+      }
+    `;
 
-  return acc;
-}, {});
+    return acc;
+  },
+  {} as {
+    [key in keyof typeof screens]: (
+      args: CSSMediaArguments,
+    ) => FlattenInterpolation<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
+  },
+);
 
 export const rootColors = {
   white: 'rgb(255, 255, 255)',
