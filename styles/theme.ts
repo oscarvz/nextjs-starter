@@ -32,12 +32,13 @@ export const rootColors = {
   white: 'rgb(255, 255, 255)',
   black: 'rgb(0, 0, 0)',
   copy: 'rgb(0, 0, 0)',
+  copyAlt: 'rgb(74, 75, 79)',
   background: 'rgb(245, 245, 245)',
   primary: 'rgb(29, 223, 205)',
-  primaryDark: 'rgb(4, 51, 47)',
+  primaryAlt: 'rgb(4, 51, 47)',
 };
 
-const colors: typeof rootColors = Object.keys(rootColors).reduce(
+const colors = Object.keys(rootColors).reduce(
   (acc, val) => ({
     ...acc,
     [val]: `var(--${val})`,
