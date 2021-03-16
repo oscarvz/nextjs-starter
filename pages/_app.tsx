@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { createGlobalStyle, css, ThemeProvider } from 'styled-components';
 import cssReset from 'styled-reset';
 
-import { theme, rootColors } from '@styles';
+import theme, { rootColors } from '@styles';
 
 const GlobalStyle = createGlobalStyle(
   ({ theme }) => css`
@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle(
 
     body {
       font-size: 16px;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
       background-color: ${theme.colors.background};
       color: ${theme.colors.copy};
     }
