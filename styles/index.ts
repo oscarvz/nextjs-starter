@@ -5,6 +5,7 @@ import type {
   CSSObject,
   DefaultTheme,
   FlattenInterpolation,
+  Interpolation,
   InterpolationFunction,
   ThemedStyledProps,
 } from 'styled-components';
@@ -14,11 +15,12 @@ type CSSMediaArguments =
   | TemplateStringsArray
   | InterpolationFunction<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
 
+// TODO: Create own custom CSSProp in due time
 const media = Object.keys(screens).reduce(
   (acc, selector) => {
-    acc[selector as keyof typeof screens] = (args) => css`
+    acc[selector as keyof typeof screens] = (args, ...interpolations) => css`
       @media (min-width: ${screens[selector as keyof typeof screens]}) {
-        ${css(args)}
+        ${css(args, ...interpolations)}
       }
     `;
 
@@ -27,6 +29,7 @@ const media = Object.keys(screens).reduce(
   {} as {
     [key in keyof typeof screens]: (
       args: CSSMediaArguments,
+      ...interpolations: Array<Interpolation<ThemedStyledProps<unknown, DefaultTheme>>>
     ) => FlattenInterpolation<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
   },
 );
