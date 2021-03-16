@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import theme from './theme';
+import { screens, colors as rootColors, shadow } from './theme';
 
 import type {
   CSSObject,
@@ -14,11 +14,9 @@ type CSSMediaArguments =
   | TemplateStringsArray
   | InterpolationFunction<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
 
-const { screens, colors: rootColors, shadow } = theme;
-
 const media = Object.keys(screens).reduce(
   (acc, selector) => {
-    acc[selector as keyof typeof screens] = (args: CSSMediaArguments) => css`
+    acc[selector as keyof typeof screens] = (args) => css`
       @media (min-width: ${screens[selector as keyof typeof screens]}) {
         ${css(args)}
       }
@@ -42,7 +40,6 @@ const colors = Object.keys(rootColors).reduce(
 );
 
 const mergedTheme = {
-  screens,
   media,
   colors,
   shadow,
