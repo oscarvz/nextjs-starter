@@ -10,12 +10,18 @@ export const colors = {
   black: 'rgb(0, 0, 0)',
   copy: 'rgb(0, 0, 0)',
   copyAlt: 'rgb(74, 75, 79)',
-  background: 'rgb(245, 245, 245)',
+  background: 'rgb(255, 255, 255)',
+  backgroundAlt: 'rgb(245, 245, 245)',
   primary: 'rgb(29, 223, 205)',
   primaryAlt: 'rgb(4, 51, 47)',
 } as const;
 
-export const shadow = {
+export const shadows = {
   small: '0 0 .5rem rgba(0, 0, 0, 0.15)',
   large: '0 0 1rem rgba(0, 0, 0, 0.15)',
+} as const;
+
+export const fonts = {
+  primary: `Georgia, 'Times New Roman', Times, serif`,
+  secondary: 'Verdana, Geneva, Tahoma, sans-serif',
 } as const;

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { screens, colors as rootColors, shadow } from './theme';
+import { screens, colors as rootColors, shadows, fonts } from './theme';
 
 import type {
   CSSObject,
@@ -10,7 +10,7 @@ import type {
   ThemedStyledProps,
 } from 'styled-components';
 
-type CSSMediaArguments =
+type CSSPropArguments =
   | CSSObject
   | TemplateStringsArray
   | InterpolationFunction<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
@@ -28,7 +28,7 @@ const media = Object.keys(screens).reduce(
   },
   {} as {
     [key in keyof typeof screens]: (
-      args: CSSMediaArguments,
+      args: CSSPropArguments,
       ...interpolations: Array<Interpolation<ThemedStyledProps<unknown, DefaultTheme>>>
     ) => FlattenInterpolation<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
   },
@@ -45,8 +45,10 @@ const colors = Object.keys(rootColors).reduce(
 const mergedTheme = {
   media,
   colors,
-  shadow,
+  shadows,
+  fonts,
 };
 
 export default mergedTheme;
 export { rootColors };
+export { default as GlobalStyle } from './globalStyle';

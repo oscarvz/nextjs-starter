@@ -1,26 +1,8 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { createGlobalStyle, css, ThemeProvider } from 'styled-components';
-import cssReset from 'styled-reset';
+import { ThemeProvider } from 'styled-components';
 
-import theme, { rootColors } from '@styles';
-
-const GlobalStyle = createGlobalStyle(
-  ({ theme }) => css`
-    :root {
-      ${Object.entries(rootColors).map(([key, value]) => `--${key}:${value};`)}
-    }
-
-    ${cssReset}
-
-    body {
-      font-size: 16px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background-color: ${theme.colors.background};
-      color: ${theme.colors.copy};
-    }
-  `,
-);
+import theme, { GlobalStyle } from '@styles';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <>
