@@ -4,3 +4,6 @@ export { default as Button } from './Button';
 export { default as Heading } from './Heading';
 export { default as Wrapper } from './Wrapper';
 export { default as Layout } from './Layout';
+export { default as Libraries } from './Libraries';
+
+export type { LibrariesArray } from './Libraries';

@@ -1,50 +1,91 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import styled, { css } from 'styled-components';
 
-import { Heading, Wrapper } from '@components';
+import { Button, Heading, Wrapper as BaseWrapper } from '@components';
 
-const Header = styled.header(
-  ({ theme }) => css`
-    padding: 1rem 0;
-    background: ${theme.colors.white};
-    box-shadow: ${theme.shadow.large};
-  `,
-);
-
-const Main = styled(Wrapper)`
-  padding: 0 1rem;
-`;
-
-const Footer = styled.footer(
+const FixedBar = styled.div(
   ({ theme }) => css`
     position: fixed;
-    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    padding: 0.5rem 0;
-    text-align: center;
-    background: ${theme.colors.white};
-    box-shadow: ${theme.shadow};
+    background: ${theme.colors.background};
+    box-shadow: ${theme.shadows.lg};
   `,
 );
 
-const Layout: React.FC<{ title?: string }> = ({ children, title }) => (
-  <>
-    <Head>
-      <title>{title || 'Next.js starter'}</title>
-    </Head>
+const Header = styled(FixedBar).attrs({ as: 'header' })`
+  top: 0;
+  height: 4rem;
+`;
 
-    <Header>
-      <Wrapper>
-        <Heading bold>Next.js starter</Heading>
-      </Wrapper>
-    </Header>
-
-    <Main as="main">{children}</Main>
-
-    <Footer>
-      <p>Built with &hearts; somewhere</p>
-    </Footer>
-  </>
+const Footer = styled(FixedBar).attrs({ as: 'footer' })(
+  ({ theme }) => css`
+    bottom: 0;
+    height: 3rem;
+    font-family: ${theme.fonts.secondary};
+    font-size: 0.8rem;
+    color: ${theme.colors.copyAlt};
+  `,
 );
+
+const Main = styled(BaseWrapper)`
+  padding: 4rem 1.5rem 3rem;
+`;
+
+const HeaderWrapper = styled(BaseWrapper)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
+const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
+  const [userName, setUserName] = useState(null);
+
+  const callApi = async (): Promise<void> => {
+    try {
+      const res = await fetch('/api/login');
+
+      if (res.ok) {
+        const data = await res.json();
+        setUserName(data.name);
+      }
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
+  return (
+    <>
+      <Head>
+        <title>{title || 'Next.js starter'}</title>
+      </Head>
+
+      <Header>
+        <HeaderWrapper>
+          <Heading bold>Next.js starter</Heading>
+
+          {!userName ? (
+            <Button primary onClick={callApi}>
+              click me
+            </Button>
+          ) : (
+            <p>Logged in as {userName}</p>
+          )}
+        </HeaderWrapper>
+      </Header>
+
+      <Main as="main">{children}</Main>
+
+      <Footer>
+        <p>Your fancy footer here &copy; 2021</p>
+      </Footer>
+    </>
+  );
+};
 
 export default Layout;
