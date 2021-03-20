@@ -17,8 +17,8 @@ export const colors = {
 } as const;
 
 export const shadows = {
-  small: '0 0 .5rem rgba(0, 0, 0, 0.15)',
-  large: '0 0 1rem rgba(0, 0, 0, 0.15)',
+  sm: '0 0 0.5rem rgba(0, 0, 0, 0.15)',
+  lg: '0 0 1rem rgba(0, 0, 0, 0.15)',
 } as const;
 
 export const fonts = {

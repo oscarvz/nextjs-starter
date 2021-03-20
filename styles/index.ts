@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { screens, colors as rootColors, shadows, fonts } from './theme';
+import { screens, colors as rootColors, shadows as rootShadows, fonts } from './theme';
 
 import type {
   CSSObject,
@@ -42,6 +42,14 @@ const colors = Object.keys(rootColors).reduce(
   {} as typeof rootColors,
 );
 
+const shadows = Object.keys(rootShadows).reduce(
+  (acc, val) => ({
+    ...acc,
+    [val]: `var(--shadow-${val})`,
+  }),
+  {} as typeof rootShadows,
+);
+
 const mergedTheme = {
   media,
   colors,
@@ -50,5 +58,4 @@ const mergedTheme = {
 };
 
 export default mergedTheme;
-export { rootColors };
 export { default as GlobalStyle } from './globalStyle';

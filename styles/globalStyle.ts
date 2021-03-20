@@ -1,15 +1,21 @@
 import { createGlobalStyle, css } from 'styled-components';
 import cssReset from 'styled-reset';
 
-import { rootColors } from '.';
+import { colors, shadows } from './theme';
 
 const GlobalStyle = createGlobalStyle(
   ({ theme }) => css`
     :root {
-      ${Object.entries(rootColors).map(([key, value]) => `--${key}:${value};`)}
+      ${Object.entries(colors).map(([key, value]) => `--${key}: ${value};`)}
+      ${Object.entries(shadows).map(([key, value]) => `--shadow-${key}: ${value};`)}
     }
 
     ${cssReset}
+
+    * {
+      box-sizing: border-box;
+      transition: all 0.1s ease-in-out;
+    }
 
     body {
       font-size: 16px;
