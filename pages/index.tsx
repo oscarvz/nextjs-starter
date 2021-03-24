@@ -6,7 +6,7 @@ import type { LibrariesArray } from '@components';
 
 const Heading = styled(BaseHeading).attrs({ as: 'h2' })`
   font-size: 2.5rem;
-  margin: 2.5rem 0;
+  margin: 5rem 0;
 `;
 
 const Home: React.FC<LibrariesArray> = ({ libraries }) => (
