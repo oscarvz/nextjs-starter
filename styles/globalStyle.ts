@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle(
     }
 
     a {
+      color: unset;
       text-decoration: none;
     }
   `,
