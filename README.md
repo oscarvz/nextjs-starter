@@ -6,13 +6,18 @@ This repo houses a [bootstrapped Next.js project](https://nextjs.org/docs#setup)
 
 > For demonstration purposes I added a few components with basic styling to play around with.
 
-#### A few neat things:
-- The `styled-compnents` theme is typed so your text editor/IDE will give you suggestions;
+#### A few neat things to point out:
+- Added support for SSG CSS!
+- The `styled-components` theme is typed so your text editor/IDE will give you suggestions;
 - The theme currently generates CSS variables so playing around with different color options from your browser's dev tools is easy!
+
+#### Features I'll add later:
+- Dark mode
+- Optional inclusion of the [`framer-motion`](https://github.com/framer/motion) library
 
 ---
 
-## Get started
+## Getting started
 You can clone this repo or use Github's '[use this template](https://github.com/oscarvz/nextjs-starter/generate)' function (the green button - it allows you to create a new repo with this code where this Git history is removed).
 
 Before running below commands, make sure to create a `.env.local` file and add `BASE_URL=http://localhost:3000`.
