@@ -1,9 +1,8 @@
-# Personal Next.js starter
+# Next.js starter
 
 When I start a new project, [Next.js](https://nextjs.org/) is my preferred framework to get started with. It comes with SSG & SSR and other optimisations right out of the box and allows you to set up & deploy a product fast.
 
 This repo houses a [bootstrapped Next.js project](https://nextjs.org/docs#setup) with TypeScript as the main language and some preferred libraries so I can get started on new projects immediately!
-
 
 > For demonstration purposes I added a few components with basic styling to play around with.
 
