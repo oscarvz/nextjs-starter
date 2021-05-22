@@ -29,6 +29,7 @@ yarn dev
 npm install;
 npm run dev
 ```
+---
 
 ## Added tech & libraries
 
