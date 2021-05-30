@@ -7,7 +7,7 @@ This repo houses a [bootstrapped Next.js project](https://nextjs.org/docs#setup)
 > For demonstration purposes I added a few components with basic styling to play around with.
 
 #### A few neat things to point out:
-- Added support for SSG CSS!
+- Added support for SSR CSS!
 - The `styled-components` theme is typed so your text editor/IDE will give you suggestions;
 - The theme currently generates CSS variables so playing around with different color options from your browser's dev tools is easy!
 
