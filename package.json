@@ -19,7 +19,7 @@
     "styled-reset": "^4.3.4"
   },
   "devDependencies": {
-    "@types/node": "^15.12.0",
+    "@types/node": "^15.12.2",
     "@types/react": "^17.0.9",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
