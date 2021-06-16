@@ -106,7 +106,7 @@ const Libraries: React.FC<LibrariesArray> = ({ libraries }) => (
     {libraries.map(({ name, description, logo, links }) => (
       <Card key={name}>
         <div>
-          <Image src={logo} objectFit="cover" height={64} width={64} quality={100} />
+          <Image src={logo} objectFit="cover" height={64} width={64} quality={100} alt={name} />
         </div>
 
         <CardDescription>
