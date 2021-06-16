@@ -6,7 +6,14 @@ module.exports = {
   },
   parserOptions: { ecmaVersion: 8 },
   ignorePatterns: ['node_modules/*', '.next/*', '.out/*', '!.prettierrc.js'],
-  extends: ['eslint:recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'next',
+    'next/core-web-vitals',
+  ],
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
@@ -17,13 +24,7 @@ module.exports = {
         node: true,
         es6: true,
       },
-      extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:react/recommended',
-        'plugin:react-hooks/recommended',
-        'plugin:jsx-a11y/recommended',
-      ],
+      extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
