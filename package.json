@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "npx prettier --write ./pages"
+    "format": "npx prettier --write ./pages",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^11.0.0",
