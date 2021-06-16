@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default (req: NextApiRequest, res: NextApiResponse): void => {
+const libraries = (req: NextApiRequest, res: NextApiResponse): void => {
   res.statusCode = 200;
 
   res.json([
@@ -87,3 +87,5 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
     },
   ]);
 };
+
+export default libraries;
