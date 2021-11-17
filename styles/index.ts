@@ -1,5 +1,10 @@
 import { css } from 'styled-components';
-import { screens, colors as rootColors, shadows as rootShadows, fonts } from './theme';
+import {
+  screens,
+  colors as rootColors,
+  shadows as rootShadows,
+  fonts,
+} from './theme';
 
 import type {
   CSSObject,
@@ -13,7 +18,9 @@ import type {
 type CSSPropArguments =
   | CSSObject
   | TemplateStringsArray
-  | InterpolationFunction<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
+  | InterpolationFunction<
+      ThemedStyledProps<Record<string, unknown>, DefaultTheme>
+    >;
 
 // TODO: Create own custom CSSProp in due time
 const media = Object.keys(screens).reduce(
@@ -29,8 +36,12 @@ const media = Object.keys(screens).reduce(
   {} as {
     [key in keyof typeof screens]: (
       args: CSSPropArguments,
-      ...interpolations: Array<Interpolation<ThemedStyledProps<unknown, DefaultTheme>>>
-    ) => FlattenInterpolation<ThemedStyledProps<Record<string, unknown>, DefaultTheme>>;
+      ...interpolations: Array<
+        Interpolation<ThemedStyledProps<unknown, DefaultTheme>>
+      >
+    ) => FlattenInterpolation<
+      ThemedStyledProps<Record<string, unknown>, DefaultTheme>
+    >;
   },
 );
 

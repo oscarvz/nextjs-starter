@@ -7,7 +7,9 @@ const GlobalStyle = createGlobalStyle(
   ({ theme }) => css`
     :root {
       ${Object.entries(colors).map(([key, value]) => `--${key}: ${value};`)}
-      ${Object.entries(shadows).map(([key, value]) => `--shadow-${key}: ${value};`)}
+      ${Object.entries(shadows).map(
+        ([key, value]) => `--shadow-${key}: ${value};`,
+      )}
     }
 
     ${cssReset}
