@@ -1,21 +1,23 @@
+import type { FunctionComponent } from 'react';
 import BaseImage from 'next/image';
 import styled, { css } from 'styled-components';
 
 import { Heading as BaseHeading } from '@components';
 
 export type LibrariesArray = {
-  libraries: {
+  libraries: Array<{
     name: string;
     description: string;
     logo: string;
-    links: {
+    links: Array<{
       name: string;
       url: string;
-    }[];
-  }[];
+    }>;
+  }>;
 };
 
-// TODO: Move these values to theme from where a hook handles global spacing values based on media queries
+// TODO: Move these values to theme from where a hook handles global spacing
+// values based on media queries
 const GAP = {
   initial: 1.5,
   md: 2.5,
@@ -101,7 +103,7 @@ const Heading = styled(BaseHeading).attrs({ as: 'h3' })`
   margin-bottom: 1.5rem;
 `;
 
-const Libraries: React.FC<LibrariesArray> = ({ libraries }) => (
+const Libraries: FunctionComponent<LibrariesArray> = ({ libraries }) => (
   <CardsList>
     {libraries.map(({ name, description, logo, links }) => (
       <Card key={name}>

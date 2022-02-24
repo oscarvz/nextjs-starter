@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
-const Button = styled.button<{ primary?: boolean }>(
+type Props = { primary?: boolean };
+
+const Button = styled.button<Props>(
   ({ theme, primary }) => css`
     padding: 0.5rem;
     color: ${theme.colors.primaryAlt};

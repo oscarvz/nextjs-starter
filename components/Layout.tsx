@@ -1,8 +1,11 @@
+import { FunctionComponent, useCallback } from 'react';
 import { useState } from 'react';
 import Head from 'next/head';
 import styled, { css } from 'styled-components';
 
 import { Button, Heading, Wrapper as BaseWrapper } from '@components';
+
+type Props = { title?: string };
 
 const FixedBar = styled.div(
   ({ theme }) => css`
@@ -43,10 +46,10 @@ const HeaderWrapper = styled(BaseWrapper)`
   width: 100%;
 `;
 
-const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
+const Layout: FunctionComponent<Props> = ({ children, title }) => {
   const [userName, setUserName] = useState(null);
 
-  const callApi = async (): Promise<void> => {
+  const callApi = useCallback(async () => {
     try {
       const res = await fetch('/api/login');
 
@@ -55,9 +58,9 @@ const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
         setUserName(data.name);
       }
     } catch (err) {
-      throw new Error(err);
+      throw new Error(`${err}`);
     }
-  };
+  }, []);
 
   return (
     <>

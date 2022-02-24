@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
-const Heading = styled.h1<{ bold?: boolean; italic?: boolean }>(
+type Props = { bold?: boolean; italic?: boolean };
+
+const Heading = styled.h1<Props>(
   ({ bold, italic }) => css`
     ${bold &&
     css`

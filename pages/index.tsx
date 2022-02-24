@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import styled from 'styled-components';
 
 import { Heading as BaseHeading, Layout, Libraries } from '@components';
@@ -9,7 +9,7 @@ const Heading = styled(BaseHeading).attrs({ as: 'h2' })`
   margin: 5rem 0;
 `;
 
-const Home: React.FC<LibrariesArray> = ({ libraries }) => (
+const Home: NextPage<LibrariesArray> = ({ libraries }) => (
   <Layout title="Next.js starter home">
     <Heading>Personal Next.js starter!</Heading>
 
