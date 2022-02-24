@@ -1,4 +1,9 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
   images: {
     domains: [
       'buttercms.com',
@@ -8,3 +13,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = nextConfig;
