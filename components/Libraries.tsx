@@ -24,33 +24,33 @@ const GAP = {
 } as const;
 
 const CardsList = styled.ul(
-  ({ theme }) => css`
+  ({ theme: { media } }) => css`
     display: flex;
     flex-wrap: wrap;
     gap: ${GAP.initial}rem;
     margin: 1.5rem 0;
 
-    ${theme.media.md`
+    ${media.md`
       gap: ${GAP.md}rem;
   `}
   `,
 );
 
 const Card = styled.li(
-  ({ theme }) => css`
-    background-color: ${theme.colors.background};
+  ({ theme: { colors, media, shadows } }) => css`
+    background-color: ${colors.background};
     display: flex;
     flex-direction: column;
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: ${theme.shadows.lg};
+    box-shadow: ${shadows.lg};
     padding: 2rem;
 
-    ${theme.media.md`
+    ${media.md`
       flex-basis: calc(50% - ${GAP.md / 2}rem);
     `}
 
-    ${theme.media.xxl`
+    ${media.xxl`
       flex-basis: calc(33.33333% - ${GAP.md}rem);
     `}
   `,
@@ -64,16 +64,16 @@ const CardDescription = styled.div`
   flex: 1;
 
   p {
-    color: ${({ theme }) => theme.colors.copyAlt};
+    color: ${({ theme: { colors } }) => colors.copyAlt};
     line-height: 1.2;
   }
 `;
 
 const Links = styled.ul(
-  ({ theme }) => css`
+  ({ theme: { fonts } }) => css`
     display: flex;
     gap: 1rem;
-    font-family: ${theme.fonts.secondary};
+    font-family: ${fonts.secondary};
     font-size: 0.75rem;
     text-transform: lowercase;
     justify-content: flex-end;
@@ -84,16 +84,16 @@ const Links = styled.ul(
 const Link = styled.li``;
 
 const LinkAnchor = styled.a(
-  ({ theme }) => css`
+  ({ theme: { colors } }) => css`
     padding: 0.5rem;
     border-radius: 0.5rem;
 
-    background-color: ${theme.colors.backgroundAlt};
-    color: ${theme.colors.copyAlt};
+    background-color: ${colors.backgroundAlt};
+    color: ${colors.copyAlt};
 
     &:hover {
-      color: ${theme.colors.primaryAlt};
-      background-color: ${theme.colors.primary};
+      color: ${colors.primaryAlt};
+      background-color: ${colors.primary};
     }
   `,
 );

@@ -3,13 +3,11 @@ import styled, { css } from 'styled-components';
 type Props = { primary?: boolean };
 
 const Button = styled.button<Props>(
-  ({ theme, primary }) => css`
+  ({ theme: { colors, shadows }, primary }) => css`
     padding: 0.5rem;
-    color: ${theme.colors.primaryAlt};
-    background-color: ${primary
-      ? theme.colors.primary
-      : theme.colors.background};
-    box-shadow: ${theme.shadows.sm};
+    color: ${colors.primaryAlt};
+    background-color: ${primary ? colors.primary : colors.background};
+    box-shadow: ${shadows.sm};
     border: none;
     border-radius: 0.25rem;
     font-size: 1rem;
