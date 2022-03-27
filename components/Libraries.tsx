@@ -32,18 +32,18 @@ const CardsList = styled.ul(
 
     ${media.md`
       gap: ${GAP.md}rem;
-  `}
+    `}
   `,
 );
 
 const Card = styled.li(
-  ({ theme: { colors, media, shadows } }) => css`
-    background-color: ${colors.background};
+  ({ theme: { color, media, shadow } }) => css`
+    background-color: ${color.background};
     display: flex;
     flex-direction: column;
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: ${shadows.lg};
+    box-shadow: ${shadow.lg};
     padding: 2rem;
 
     ${media.md`
@@ -64,16 +64,16 @@ const CardDescription = styled.div`
   flex: 1;
 
   p {
-    color: ${({ theme: { colors } }) => colors.copyAlt};
+    color: ${({ theme: { color } }) => color.copyAlt};
     line-height: 1.2;
   }
 `;
 
 const Links = styled.ul(
-  ({ theme: { fonts } }) => css`
+  ({ theme: { font } }) => css`
     display: flex;
     gap: 1rem;
-    font-family: ${fonts.secondary};
+    font-family: ${font.secondary};
     font-size: 0.75rem;
     text-transform: lowercase;
     justify-content: flex-end;
@@ -84,16 +84,16 @@ const Links = styled.ul(
 const Link = styled.li``;
 
 const LinkAnchor = styled.a(
-  ({ theme: { colors } }) => css`
+  ({ theme: { color } }) => css`
     padding: 0.5rem;
     border-radius: 0.5rem;
 
-    background-color: ${colors.backgroundAlt};
-    color: ${colors.copyAlt};
+    background-color: ${color.backgroundAlt};
+    color: ${color.copyAlt};
 
     &:hover {
-      color: ${colors.primaryAlt};
-      background-color: ${colors.primary};
+      color: ${color.primaryAlt};
+      background-color: ${color.primary};
     }
   `,
 );

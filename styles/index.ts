@@ -1,10 +1,5 @@
 import { css } from 'styled-components';
-import {
-  screens,
-  colors as rootColors,
-  shadows as rootShadows,
-  fonts,
-} from './theme';
+import { theme } from './theme';
 
 import type {
   CSSObject,
@@ -23,10 +18,15 @@ type CSSPropArguments =
     >;
 
 // TODO: Create own custom CSSProp in due time
-const media = Object.keys(screens).reduce(
+const media = Object.keys(theme.screen).reduce(
   (acc, selector) => {
-    acc[selector as keyof typeof screens] = (args, ...interpolations) => css`
-      @media (min-width: ${screens[selector as keyof typeof screens]}) {
+    acc[selector as keyof typeof theme.screen] = (
+      args,
+      ...interpolations
+    ) => css`
+      @media (min-width: ${theme.screen[
+          selector as keyof typeof theme.screen
+        ]}) {
         ${css(args, ...interpolations)}
       }
     `;
@@ -34,7 +34,7 @@ const media = Object.keys(screens).reduce(
     return acc;
   },
   {} as {
-    [key in keyof typeof screens]: (
+    [key in keyof typeof theme.screen]: (
       args: CSSPropArguments,
       ...interpolations: Array<
         Interpolation<ThemedStyledProps<unknown, DefaultTheme>>
@@ -45,27 +45,9 @@ const media = Object.keys(screens).reduce(
   },
 );
 
-const colors = Object.keys(rootColors).reduce(
-  (acc, val) => ({
-    ...acc,
-    [val]: `var(--${val})`,
-  }),
-  {} as typeof rootColors,
-);
-
-const shadows = Object.keys(rootShadows).reduce(
-  (acc, val) => ({
-    ...acc,
-    [val]: `var(--shadow-${val})`,
-  }),
-  {} as typeof rootShadows,
-);
-
 const mergedTheme = {
+  ...theme,
   media,
-  colors,
-  shadows,
-  fonts,
 };
 
 export default mergedTheme;

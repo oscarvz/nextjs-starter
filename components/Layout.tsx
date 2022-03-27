@@ -8,15 +8,15 @@ import { Button, Heading, Wrapper as BaseWrapper } from '@components';
 type Props = { title?: string };
 
 const FixedBar = styled.div(
-  ({ theme: { colors, shadows } }) => css`
+  ({ theme: { color, shadow } }) => css`
     position: fixed;
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: ${colors.background};
-    box-shadow: ${shadows.lg};
+    background: ${color.background};
+    box-shadow: ${shadow.lg};
   `,
 );
 
@@ -26,12 +26,12 @@ const Header = styled(FixedBar).attrs({ as: 'header' })`
 `;
 
 const Footer = styled(FixedBar).attrs({ as: 'footer' })(
-  ({ theme: { colors, fonts } }) => css`
+  ({ theme: { color, font } }) => css`
     bottom: 0;
     height: 3rem;
-    font-family: ${fonts.secondary};
+    font-family: ${font.secondary};
     font-size: 0.8rem;
-    color: ${colors.copyAlt};
+    color: ${color.copyAlt};
   `,
 );
 

@@ -1,17 +1,21 @@
 import { createGlobalStyle, css } from 'styled-components';
 import cssReset from 'styled-reset';
 
-import { colors as cssColorVariables, shadows } from './theme';
+import { theme } from './theme';
+
+const themeCssVariables = Object.entries(theme).reduce((acc, [key, val]) => {
+  return [
+    ...acc,
+    ...Object.entries(val).map(
+      ([entryKey, entryValue]) => `--${key}-${entryKey}: ${entryValue};`,
+    ),
+  ];
+}, [] as Array<string>);
 
 const GlobalStyle = createGlobalStyle(
-  ({ theme: { colors, fonts } }) => css`
+  ({ theme: { color, font } }) => css`
     :root {
-      ${Object.entries(cssColorVariables).map(
-        ([key, value]) => `--${key}: ${value};`,
-      )}
-      ${Object.entries(shadows).map(
-        ([key, value]) => `--shadow-${key}: ${value};`,
-      )}
+      ${themeCssVariables}
     }
 
     ${cssReset}
@@ -23,9 +27,9 @@ const GlobalStyle = createGlobalStyle(
 
     body {
       font-size: 16px;
-      font-family: ${fonts.primary};
-      background-color: ${colors.backgroundAlt};
-      color: ${colors.copy};
+      font-family: ${font.primary};
+      background-color: ${color.backgroundAlt};
+      color: ${color.copy};
     }
 
     h1,
@@ -34,7 +38,7 @@ const GlobalStyle = createGlobalStyle(
     h4,
     h5,
     h6 {
-      font-family: ${fonts.secondary};
+      font-family: ${font.secondary};
       font-weight: bold;
     }
 
