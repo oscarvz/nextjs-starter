@@ -14,7 +14,7 @@ const media = Object.entries(theme.screen).reduce(
     [key]: (
       args: TemplateStringsArray | CSSObject,
       ...interpolations: SimpleInterpolation[]
-    ) => `
+    ) => css`
       @media (min-width: ${value}) {
         ${css(args, ...interpolations)}
       }
