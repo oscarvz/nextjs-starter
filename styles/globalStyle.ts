@@ -3,14 +3,15 @@ import cssReset from 'styled-reset';
 
 import { theme } from './theme';
 
-const themeCssVariables = Object.entries(theme).reduce((acc, [key, val]) => {
-  return [
+const themeCssVariables = Object.entries(theme).reduce(
+  (acc, [key, val]) => [
     ...acc,
     ...Object.entries(val).map(
       ([entryKey, entryValue]) => `--${key}-${entryKey}: ${entryValue};`,
     ),
-  ];
-}, [] as Array<string>);
+  ],
+  [] as Array<string>,
+);
 
 const GlobalStyle = createGlobalStyle(
   ({ theme: { color, font } }) => css`

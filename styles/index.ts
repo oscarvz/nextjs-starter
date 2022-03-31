@@ -6,9 +6,9 @@ import type {
 
 import { css } from 'styled-components';
 
-import { theme } from './theme';
+import { theme as baseTheme } from './theme';
 
-const media = Object.entries(theme.screen).reduce(
+const media = Object.entries(baseTheme.screen).reduce(
   (acc, [key, value]) => ({
     ...acc,
     [key]: (
@@ -21,11 +21,25 @@ const media = Object.entries(theme.screen).reduce(
     `,
   }),
   {} as {
-    [key in keyof typeof theme.screen]: (
+    [key in keyof typeof baseTheme.screen]: (
       args: TemplateStringsArray | CSSObject,
       ...interpolations: SimpleInterpolation[]
     ) => FlattenSimpleInterpolation;
   },
+);
+
+const theme = Object.entries(baseTheme).reduce(
+  (acc, [key, val]) => ({
+    ...acc,
+    [key]: Object.keys(val).reduce(
+      (nestedAcc, nestedKey) => ({
+        ...nestedAcc,
+        [nestedKey]: `var(--${key}-${nestedKey})`,
+      }),
+      {},
+    ),
+  }),
+  {} as typeof baseTheme,
 );
 
 const mergedTheme = {
